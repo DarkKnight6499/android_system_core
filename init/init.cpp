@@ -85,9 +85,7 @@ int have_console;
 std::string console_name = "/dev/console";
 static time_t process_needs_restart;
 
-// xen0n: some MTK services (e.g. ril-daemon-mtk) require very large number
-// of sockets, which can't be contained in 32 entries minus other variables.
-const char *ENV[64];
+const char *ENV[32];
 
 bool waiting_for_exec = false;
 
@@ -368,7 +366,7 @@ static void export_kernel_boot_props() {
         { "ro.boot.mode",       "ro.bootmode",   "unknown", },
         { "ro.boot.baseband",   "ro.baseband",   "unknown", },
         { "ro.boot.bootloader", "ro.bootloader", "unknown", },
-        { "ro.boot.hardware",   "ro.hardware",   "mt6595", },
+        { "ro.boot.hardware",   "ro.hardware",   "mt6582", },
 #ifndef IGNORE_RO_BOOT_REVISION
         { "ro.boot.revision",   "ro.revision",   "0", },
 #endif
